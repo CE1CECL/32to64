@@ -232,7 +232,7 @@ code.small {
  <div id="content">
  <img src="./invert.png" id="logo" alt="CE1CECL Logo">
  <h1><span class="f1">Chr</span><span class="f2">isE</span><span class="f3">ric</span><span class="f4">1 </span><span class="f5">CE</span><span class="f6">CL</span></h1></li>
- <h2>How to upgrade 32-bit to 64-bit Windows (or do it reversed), while keeping apps, files, & settings!</h2>
+ <h2>How to upgrade 32-bit Windows to 64-bit Windows (or "upgrade" 64-bit Windows to 32-bit Windows), while keeping programs, files, & settings!</h2>
  <p>
  NOTE:
  </p>
@@ -249,46 +249,50 @@ code.small {
  NOTE:
  </p>
  <p>
- Don't Ask about the older Windows 7 and earlier setup, this trick doesn't work on it as Windows 7 uses checks after clicking on it (similar to Windows 10). And no, you can't copy the "$WINDOWS.~BT" folder over as it knows the Hard Disk ID Number. 
+ Don't Ask about the older Windows 7 and earlier setup, this trick doesn't work on it, as Windows 7 uses checks after clicking on it (similar to Windows 10). And no, you can't copy the "$WINDOWS.~BT" folder over as it knows the Hard Disk ID Number. 
  </p>
  <p>
  Prerequisites:
  </p>
  <p>
- Windows XP (SP3), Windows Vista, Windows 7, Windows 8.0[1] ( !!! CLIENT EDITONS ONLY, SERVER IS WIP (as of 2024) !!! )
+ Windows XP (SP3), Windows Vista, Windows 7, Windows 8.0[1] ( !!! CLIENT EDITONS ONLY, WINDOWS SERVER GUIDE IS WIP (as of 2025) !!! )
  </p>
  <p>
- ! Windows 10[3] and Windows 8.1[2] Does NOT work at the moment unless you are able to downgrade with/out lossing data !
+ ! Windows 10[3] and Windows 8.1[2] Does NOT work at the moment unless you are able to downgrade without lossing data !
  </p>
  <p>
- If you have XP 64-bit or x64 (SP2), you may need to find another runaround as there is no SP3 for those versions. There might be a registry hack but i don't know what to change! (it would be nice for Windows NT/2000 with KernelEx as well but its unlikely for 9x/ME)
+ [UNTESTED (yet)] If you have Windows XP x64, try running NNN Changer for NT5.x (NNN4NT5.exe), click apply, and running the installprep.exe again.
  </p>
  <p>
  Downloads[4]:
  </p>
  <a class="btn" href="./ShowHideControls.exe" rel="nofollow">ShowHideControls (Orignal Russian version) (Required)</a><br>
- <a class="btn" href="./ShowHideControls_en-us.exe" rel="nofollow">ShowHideControls (English Modified version) (Required)</a><br>
- <a class="btn" href="http://forums.mydigitallife.net/threads/complete-upgrade-from-windows-8-1-preview-to-windows-8-1-rtm-without-loosing-files.47611/page-4#post-806415" rel="nofollow">ShowHideControls (English Modified version) Reference Source on MDL</a><br>
+ <a class="btn" href="./ShowHideControls_en-us.exe" rel="nofollow">ShowHideControls (Modified English version) (Required)</a><br>
+ <a class="btn" href="./NNN4NT5.exe" rel="nofollow">NNN Changer for NT5.x (only Required for Windows XP x64)</a><br>
+ <a class="btn" href="http://forums.mydigitallife.net/threads/complete-upgrade-from-windows-8-1-preview-to-windows-8-1-rtm-without-loosing-files.47611/page-4#post-806415" rel="nofollow">ShowHideControls (Modified English version) Reference Source on MDL</a><br>
  <a class="btn" href="http://ia800901.us.archive.org/2/items/MicrosoftWindows86.2.7955.0UltimateM2/Microsoft%20Windows%208%20%286.2.7955.0%29%20%28Ultimate%20m2%29.iso" rel="nofollow">Windows 8 Build 7955 (Required)</a><br>
  <a class="btn" href="http://ia800903.us.archive.org/11/items/6.2.7963.0.winmain.1103101721Amd64freClientHomebasicHomepremiumProfessionalUltim/6.2.7963.0.winmain.110310-1721_amd64fre_client-homebasic-homepremium-professional-ultimate_retail_en-us-HM2_CCS_X64FRE_EN-US_DV5.iso" rel="nofollow">Windows 8 Build 7963 (if upgrading to 64-bit from 32-bit)</a><br>
  <a class="btn" href="http://osvault.weebly.com/windows-beta-repository.html" rel="nofollow">(Latest) Source for Windows 8 Build 7955 & Windows 8 Build 7963 (OSVault) in Windows BETA Repo</a><br>
  <a class="btn" href="http://web.archive.org/web/20201023064121/http://osvault.weebly.com/" rel="nofollow">(Original) Source for Windows 8 Build 7955 & Windows 8 Build 7963 (OSVault) in Windows BETA Repo</a><br>
- <a class="btn" href="https://www.betaarchive.com/forum/viewtopic.php?t=41963" rel="nofollow">BetaArchive Forum</a><br>
- <a class="btn" href="https://www.youtube.com/watch?v=xOMtuAerX3g" rel="nofollow">YouTube Video</a><br>
+ <a class="btn" href="http://www.betaarchive.com/forum/viewtopic.php?t=41963" rel="nofollow">BetaArchive Forum</a><br>
+ <a class="btn" href="http://www.youtube.com/watch?v=xOMtuAerX3g" rel="nofollow">YouTube Video</a><br>
  <p>
  ! WARNING !
  </p>
  <p>
- I am not responsible for any damage or any data loss that occurred. Use this method at your own risk. THIS IS EXPERIMENTAL Its also worth mentioning that these 2 Windows 8 downloads are BETA builds, meaning it should not be used on primary systems! These builds also have a timebomb, but for me, they were broken. 
+ I am not responsible for any damage or any data loss that occurred. Use this method at your own risk. THIS IS EXPERIMENTAL. It is also worth mentioning that these 2 Windows 8 downloads are BETA builds, meaning it should not be used on primary systems! These builds also have a timebomb, but for me, they were broken. 
  </p>
  <p>
  Known Bugs (as far as Windows XP)[5]:
  </p>
  <p>
- Firefox doesn't want to load any web pages, it will just say "your tab just crashed"
+ Firefox (52.9.0esr as of testing) doesn't want to load any web pages after upgrading, it will just say "your tab just crashed"
  </p>
  <p>
- The wallpaper gets reset as well as the profile pictures, and thats all i know!
+ The wallpaper gets reset as well as the profile pictures, after upgrading!
+ </p>
+ <p>
+ ... and thats all I know of!
  </p>
  <p>
  Set the BIOS date to (recommended)
@@ -297,13 +301,13 @@ code.small {
  2011-06-30 00:00:00 [6]
  </p>
  <p>
- Windows 8 BETA product key (if you cant open product.ini or just lazy) is:
+ The Windows 8 BETA product key (if you can't open product.ini or just too lazy to even try) is:
  </p>
  <p>
  D4F6K-QK3RD-TMVMJ-BBMRX-3MBMV
  </p>
  <p>
- Upgrade to 64-bit method:
+ Upgrade from 32-bit to 64-bit method:
  </p>
  <p>
  Step 1 (maybe optional):
@@ -390,7 +394,7 @@ code.small {
  </p>
  <img src="./12.PNG" id="ogol" alt="12">
  <p>
- Downgrade to 32-bit method[7]:
+ Downgrade from 64-bit to 32-bit method[7]:
  </p>
  <p>
  Step 1 (maybe optional):
