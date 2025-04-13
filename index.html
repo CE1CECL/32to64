@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<title>32to64 (CE1CECL)</title>
+<link rel="icon" href="./invert.png">
+<style>
+a.btn,
+code,
+ol,
+ul {
+ display: inline-block;
+}
+.left,
+code,
+ol,
+ul {
+ text-align: left;
+}
+html {
+ background: #000;
+ color: #00ffff;
+ font-family: "Helvetica Neue", Helvetica, Verdana, sans-serif;
+}
+body,
+h1 {
+ margin: 0;
+}
+#content {
+ margin: 20px auto 50px;
+ text-align: center;
+}
+h1,
+h2 {
+ color: #00ffff;
+ font-family: "Caesar Dressing", cursive;
+}
+h2 {
+ margin: 40px 0 10px;
+}
+a {
+ color: #00ffff;
+ text-decoration: none;
+ transition: ease 0.15s;
+}
+a:focus,
+a:hover {
+ color: #00ffff;
+}
+a.btn {
+ border-radius: 10px;
+ background: linear-gradient(#ff0000, #00ffff);
+ padding: 10px 15px;
+ color: #00ffff;
+ font-weight: 700;
+ font-size: 20px;
+ margin-top: 15px;
+}
+a.btn:focus,
+a.btn:hover {
+ background: linear-gradient(#ff0000, #00ffff);
+}
+a.grey {
+ color: #00ffff;
+ font-size: 12px;
+}
+a.grey:focus,
+a.grey:hover {
+ color: #00ffff;
+}
+p {
+ margin: 15px;
+ line-height: 1.5em;
+}
+.tag {
+ font-style: italic;
+}
+code {
+ border: 1px solid #555;
+ background: #333;
+ padding: 2px 5px;
+}
+code.small {
+ font-size: 14px;
+}
+@media (min-width: 980px) {
+ html {
+ font-size: 20px;
+ }
+ #content {
+ max-width: 900px;
+ }
+ #logo {
+ width: 512px;
+ height: 512px;
+ }
+ #ogol {
+ width: 768px;
+ height: 768px;
+ }
+ h1 {
+ font-size: 200px;
+ }
+ h2 {
+ font-size: 50px;
+ }
+ ul {
+ margin-left: 50px;
+ }
+ code {
+ white-space: pre;
+ }
+ .f1 {
+ animation: fire 1s ease-in-out infinite alternate;
+ -moz-animation: fire 1s ease-in-out infinite alternate;
+ -webkit-animation: fire 1s ease-in-out infinite alternate;
+ -o-animation: fire 1s ease-in-out infinite alternate;
+ }
+ .f2 {
+ animation: fire 0.65s ease-in-out infinite alternate;
+ -moz-animation: fire 0.65s ease-in-out infinite alternate;
+ -webkit-animation: fire 0.65s ease-in-out infinite alternate;
+ -o-animation: fire 0.65s ease-in-out infinite alternate;
+ }
+ .f3 {
+ animation: fire 0.85s ease-in-out infinite alternate;
+ -moz-animation: fire 0.85s ease-in-out infinite alternate;
+ -webkit-animation: fire 0.85s ease-in-out infinite alternate;
+ -o-animation: fire 0.85s ease-in-out infinite alternate;
+ }
+ .f4 {
+ animation: fire 0.93s ease-in-out infinite alternate;
+ -moz-animation: fire 0.93s ease-in-out infinite alternate;
+ -webkit-animation: fire 0.93s ease-in-out infinite alternate;
+ -o-animation: fire 0.93s ease-in-out infinite alternate;
+ }
+ .f5 {
+ animation: fire 0.72s ease-in-out infinite alternate;
+ -moz-animation: fire 0.72s ease-in-out infinite alternate;
+ -webkit-animation: fire 0.72s ease-in-out infinite alternate;
+ -o-animation: fire 0.72s ease-in-out infinite alternate;
+ }
+ .f6 {
+ animation: fire 0.79s ease-in-out infinite alternate;
+ -moz-animation: fire 0.79s ease-in-out infinite alternate;
+ -webkit-animation: fire 0.79s ease-in-out infinite alternate;
+ -o-animation: fire 0.79s ease-in-out infinite alternate;
+ }
+ @keyframes fire {
+ 0% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85,
+ -20px -20px 40px #ffae34, 20px -40px 50px #ec760c,
+ 10px -90px 80px #451b0e;
+ }
+ 100% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #fefcc9,
+ -20px -20px 40px #feec85, 22px -42px 60px #ffae34,
+ 10px -90px 80px #973716;
+ }
+ }
+ @-moz-keyframes fire {
+ 0% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85,
+ -20px -20px 40px #ffae34, 20px -40px 50px #ec760c,
+ 10px -90px 80px #451b0e;
+ }
+ 100% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #fefcc9,
+ -20px -20px 40px #feec85, 22px -42px 60px #ffae34,
+ 10px -90px 80px #973716;
+ }
+ }
+ @-webkit-keyframes fire {
+ 0% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85,
+ -20px -20px 40px #ffae34, 20px -40px 50px #ec760c,
+ 10px -90px 80px #451b0e;
+ }
+ 100% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #fefcc9,
+ -20px -20px 40px #feec85, 22px -42px 60px #ffae34,
+ 10px -90px 80px #973716;
+ }
+ }
+ @-o-keyframes fire {
+ 0% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85,
+ -20px -20px 40px #ffae34, 20px -40px 50px #ec760c,
+ 10px -90px 80px #451b0e;
+ }
+ 100% {
+ text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #fefcc9,
+ -20px -20px 40px #feec85, 22px -42px 60px #ffae34,
+ 10px -90px 80px #973716;
+ }
+ }
+}
+@media (max-width: 980px) {
+ html {
+ font-size: 17px;
+ }
+ #logo {
+ width: 100vw;
+ height: 100vw;
+ }
+ #ogol {
+ width: 768px;
+ height: 768px;
+ }
+ h1 {
+ font-size: 25vw;
+ }
+ h2 {
+ font-size: 15vw;
+ }
+ ul {
+ margin-left: 4vw;
+ }
+ code {
+ white-space: pre-wrap;
+ word-break: break-all;
+ }
+ .f1,
+ .f2,
+ .f3,
+ .f4,
+ .f5,
+ .f6 {
+ text-shadow: 0 0 20px #fefcc9, 0 -22px 20px #cd4606, 10px -10px 10px #973716;
+ }
+}
+</style>
+<body>
+ <div id="content">
+ <img src="./invert.png" id="logo" alt="CE1CECL Logo">
+ <h1><span class="f1">Chr</span><span class="f2">isE</span><span class="f3">ric</span><span class="f4">1 </span><span class="f5">CE</span><span class="f6">CL</span></h1></li>
+ <h2>How to upgrade 32-bit to 64-bit Windows (or do it reversed)</h2>
+ <p>
+ NOTE:
+ </p>
+ <p>
+ [#] Means there a note about something, scroll to the bottom of the page to see the note.
+ </p>
+ <p>
+ WARNING:
+ </p>
+ <p>
+ When you downgrade from 64-bit to 32-bit, you MAY loose 64-bit programs and it is NOT recommended to do so. Do that at your own risk!
+ </p>
+ <p>
+ NOTE:
+ </p>
+ <p>
+ Don't Ask about the older Windows 7 and earlier setup, this trick doesn't work on it as Windows 7 uses checks after clicking on it (similar to Windows 10). And no, you can't copy the "$WINDOWS.~BT" folder over as it knows the Hard Disk ID Number. 
+ </p>
+ <p>
+ Prerequisites:
+ </p>
+ <p>
+ Windows XP (SP3), Windows Vista, Windows 7, Windows 8.0[1] ( !!! CLIENT EDITONS ONLY, SERVER IS WIP (as of 2024) !!! )
+ </p>
+ <p>
+ ! Windows 10[3] and Windows 8.1[2] Does NOT work at the moment unless you are able to downgrade with/out lossing data !
+ </p>
+ <p>
+ If you have XP 64-bit or x64 (SP2), you may need to find another runaround as there is no SP3 for those versions. There might be a registry hack but i don't know what to change! (it would be nice for Windows NT/2000 with KernelEx as well but its unlikely for 9x/ME)
+ </p>
+ <p>
+ Downloads[4]:
+ </p>
+ <a class="btn" href="./ShowHideControls.exe" rel="nofollow">ShowHideControls (Orignal Russian version) (Required)</a><br>
+ <a class="btn" href="./ShowHideControls_en-us.exe" rel="nofollow">ShowHideControls (English Modified version) (Required)</a><br>
+ <a class="btn" href="http://forums.mydigitallife.net/threads/complete-upgrade-from-windows-8-1-preview-to-windows-8-1-rtm-without-loosing-files.47611/page-4#post-806415" rel="nofollow">ShowHideControls (English Modified version) Reference Source on MDL</a><br>
+ <a class="btn" href="http://ia800901.us.archive.org/2/items/MicrosoftWindows86.2.7955.0UltimateM2/Microsoft%20Windows%208%20%286.2.7955.0%29%20%28Ultimate%20m2%29.iso" rel="nofollow">Windows 8 Build 7955 (Required)</a><br>
+ <a class="btn" href="http://ia800903.us.archive.org/11/items/6.2.7963.0.winmain.1103101721Amd64freClientHomebasicHomepremiumProfessionalUltim/6.2.7963.0.winmain.110310-1721_amd64fre_client-homebasic-homepremium-professional-ultimate_retail_en-us-HM2_CCS_X64FRE_EN-US_DV5.iso" rel="nofollow">Windows 8 Build 7963 (if upgrading to 64-bit from 32-bit)</a><br>
+ <a class="btn" href="http://osvault.weebly.com/windows-beta-repository.html" rel="nofollow">(Latest) Source for Windows 8 Build 7955 & Windows 8 Build 7963 (OSVault) in Windows BETA Repo</a><br>
+ <a class="btn" href="http://web.archive.org/web/20201023064121/http://osvault.weebly.com/" rel="nofollow">(Original) Source for Windows 8 Build 7955 & Windows 8 Build 7963 (OSVault) in Windows BETA Repo</a><br>
+ <a class="btn" href="https://www.betaarchive.com/forum/viewtopic.php?t=41963" rel="nofollow">BetaArchive Forum</a><br>
+ <a class="btn" href="https://www.youtube.com/watch?v=xOMtuAerX3g" rel="nofollow">YouTube Video</a><br>
+ <p>
+ ! WARNING !
+ </p>
+ <p>
+ I am not responsible for any damage or any data loss that occurred. Use this method at your own risk. THIS IS EXPERIMENTAL Its also worth mentioning that these 2 Windows 8 downloads are BETA builds, meaning it should not be used on primary systems! These builds also have a timebomb, but for me, they were broken. 
+ </p>
+ <p>
+ Known Bugs (as far as Windows XP)[5]:
+ </p>
+ <p>
+ Firefox doesn't want to load any web pages, it will just say "your tab just crashed"
+ </p>
+ <p>
+ The wallpaper gets reset as well as the profile pictures, and thats all i know!
+ </p>
+ <p>
+ Set the BIOS date to (recommended)
+ </p>
+ <p>
+ 2011-06-30 00:00:00 [6]
+ </p>
+ <p>
+ Windows 8 BETA product key (if you cant open product.ini or just lazy)
+ </p>
+ <p>
+ D4F6K-QK3RD-TMVMJ-BBMRX-3MBMV
+ </p>
+ <p>
+ Upgrade to 64-bit method:
+ </p>
+ <p>
+ Step 1 (maybe optional):
+ </p>
+ <p>
+ Enter your computers BIOS, and set the date to 06/30/2011 (BIOS key will very depending on computer, vmware workstation uses F2, the time can stay the same but I would set it to 00:00:00) [6]
+ </p>
+ <img src="./1.PNG" id="ogol" alt="1">
+ <p>
+ Step 2[8]:
+ </p>
+ <p>
+ Boot up the computer and make a new folder on the C drive (it doesn't have to be labeled different from default unless you want to)
+ </p>
+ <img src="./2.PNG" id="ogol" alt="2">
+ <p>
+ Step 3[8]:
+ </p>
+ <p>
+ Create A "sources" folder inside of the New Folder
+ </p>
+ <img src="./3.PNG" id="ogol" alt="3">
+ <p>
+ Step 4[8]:
+ </p>
+ <p>
+ Copy install.wim from the 7963 iso inside sources to the sources folder inside New Folder on the Hard Drive
+ </p>
+ <img src="./4.PNG" id="ogol" alt="4">
+ <p>
+ Step 5 (optional)[8]:
+ </p>
+ <p>
+ Copy ShowHideControls.exe to the sources folder inside New Folder on the Hard Drive
+ </p>
+ <img src="./5.PNG" id="ogol" alt="5">
+ <p>
+ Step 6[8]:
+ </p>
+ <p>
+ Copy "boot, efi, langpacks, support, upgrade, autorun.inf, bootmgr, bootmgr.efi, setup.exe" (NOT "sources") from 7955 to the New Folder on the Hard Drive
+ </p>
+ <img src="./6.PNG" id="ogol" alt="6">
+ <p>
+ Step 7[8]:
+ </p>
+ <p>
+ Copy Every File And Folder inside sources (EXCLUDING "install.wim") from 7955 to the sources folder inside New Folder on the Hard Drive
+ </p>
+ <img src="./7.PNG" id="ogol" alt="7">
+ <p>
+ Step 8[8]:
+ </p>
+ <p>
+ Open "product.ini, ShowHideControls.exe, installprep.exe" from the sources folder inside New Folder on the Hard Drive
+ </p>
+ <img src="./8.PNG" id="ogol" alt="8">
+ <p>
+ Step 9[8]:
+ </p>
+ <p>
+ Copy The Ultimate Product Key into the Windows 8 Type Setup Screen, Click Continue and Accept the Agreement.
+ </p>
+ <img src="./9.PNG" id="ogol" alt="9">
+ <p>
+ Step 10[8]:
+ </p>
+ <p>
+ Go the the ShowHideControls Window, click the Refresh Button (its actually in russian and i couldn't find or make an english version)
+ </p>
+ <img src="./10.PNG" id="ogol" alt="10">
+ <p>
+ Step 11[8]:
+ </p>
+ <p>
+ Click the show (first) button on ShowHideControls, Mouse over the Don't keep anything button until you see "Keep user accounts, personal files, and programs" and click, then Click Continue on the Windows 8 Type Setup Screen, and then click Install, and wait for it to upgrade, until its done.
+ </p>
+ <img src="./11.PNG" id="ogol" alt="11">
+ <p>
+ Step 12:
+ </p>
+ <p>
+ Done. Step 12 is not really a step but you did it!
+ </p>
+ <img src="./12.PNG" id="ogol" alt="12">
+ <p>
+ Downgrade to 32-bit method[7]:
+ </p>
+ <p>
+ Step 1 (maybe optional):
+ </p>
+ <p>
+ Enter your computers BIOS, and set the date to 06/30/2011 (BIOS key will very depending on computer, vmware workstation uses F2, the time can stay the same but I would set it to 00:00:00) [6]
+ </p>
+ <img src="./13.PNG" id="ogol" alt="13">
+ <p>
+ Step 2:
+ </p>
+ <p>
+ Go to the 7955 iso and open "product.ini & installprep.exe" (you don't have to modify the iso this time). Also open ShowHideControls.exe and enter the product key in Windows 8 Type Setup Screen.
+ </p>
+ <img src="./14.PNG" id="ogol" alt="14">
+ <p>
+ Step 3:
+ </p>
+ <p>
+ Accept The license agreement and go back to the ShowHideControls Window, click the Refresh Button, then Click the show (first) button on ShowHideControls, Mouse over the Don't keep anything button until you see "Keep user accounts, personal files, and programs" and click, then Click Continue on the Windows 8 Type Setup Screen, and then click Install, and wait for it to downgrade, until its done.
+ </p>
+ <img src="./15.PNG" id="ogol" alt="15">
+ <p>
+ Step 4:
+ </p>
+ <p>
+ Done. Step 4 is not really a step but you did it!
+ </p>
+ <img src="./16.PNG" id="ogol" alt="16">
+ <p>
+ {1} Windows 8.0 IS the last known working version to downgrade because of (see [2]).
+ </p>
+ <p>
+ {2} Windows 8.1 RTM or later downgrading to Windows 8.0 RTM or earlier is known to cause the following issue (see photo)
+ </p>
+ <img src="./17.PNG" id="ogol" alt="17">
+ <p>
+ {3} Windows 10 build 9841 (TP) or later does not let you use the ShowHideControls trick for whatever reason (see video) It it known not occur on build 9870 because its just a windows 8.1 setup named "installprep.exe" instead of "setupprep.exe"!
+ </p>
+ <video id="ogol" alt="0" controls loop>
+ <source src="./0.mp4" type="video/mp4">
+ </video>
+ <p>
+ {4} You don't have to use these 2 specific builds in the downloads section, these just only work with Windows XP, but if you on something like Windows 7, You can probably use Windows 8 Consumer or Dev preview as these work just find at least for Windows 7/8.
+ </p>
+ <p>
+ {5} The wallpaper from downgrading from Windows 8 Consumer preview to Windows 8 Dev preview didn't change and its only noticed in XP, its probably because Windows XP didn't come with an "AppData" folder while Windows vista and Up did, and it doesn't redirect, while "Documents and Settings" was changed to "Users", it actually has a "symbolic link".
+ </p>
+ <p>
+ {6} They all go together and are just repeated. 
+ </p>
+ <p>
+ {7} If you are just going from 32-bit to 32-bit or 64-bit to 64-bit, the steps are pretty much the same.
+ </p>
+ <p>
+ {8} These photos are Windows XP SP3 (which is 32-bit only)
+ </p>
+ <p>
+ It is also worth mentioning that you CANNOT upgrade windows 8.1 (10) 32-bit to 64-bit / 64-bit to 32-bit without downgrading first as it just goes to the "choose keyboard layout" instead of the "preparing your pc" screen. While you might be able to downgrade a couple of Windows 10 TP builds to 8.1, it would be useless anyways.
+ </p>
+ <p>
+ Also, you should NOT put a 1703 (EXAMPLE) install.wim file into a 1709 (EXAMPLE) iso, as it will 1. rollback the install. 2. Get stuck somewhere at the end and you might need to reset.
+ </p>
+ <p>
+ Whats Next:
+ </p>
+ <p>
+ Windows XP SP2 (INCLUDING X64-64BIT) and earlier and Windows 8.1 and later support (INCLUDING WIN10).
+ </p>
+ <p>
+ Windows Server 2003-2022 support. (Windows Server 2003 32to64 is confirmed to work, No 64to32 at this time, still need to write a guide)
+ </p>
+ </div>
+</body>
+</html>
