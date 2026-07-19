@@ -12,6 +12,13 @@ copy /Y %SystemDrive%\32to32v2\32\AMD64\* %SystemDrive%\$WIN_NT$.~LS\AMD64\
 mkdir %SystemDrive%\$WIN_NT$.~LS\I386\
 copy /Y %SystemDrive%\32to32v2\32\I386\* %SystemDrive%\$WIN_NT$.~LS\I386\
 copy /Y %SystemDrive%\32to32v2\32\PIDGEN.DLL %SystemDrive%\$WIN_NT$.~LS\I386\PIDGEN.DLL
-echo REG DELETE HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Network /va /f > %SystemDrive%\a.bat
+echo @REG DELETE HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Network /va /f > %SystemDrive%\a.bat
+echo @REGEDIT /E %%SystemDrive%%\Enum.reg HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum >> %SystemDrive%\a.bat
+echo @ECHO Once The Product Key Window Appears: >> %SystemDrive%\a.bat
+echo @PAUSE >> %SystemDrive%\a.bat
+echo :LOOP >> %SystemDrive%\a.bat
+echo @TIMEOUT /T 1 >> %SystemDrive%\a.bat
+echo @REGEDIT /S %%SystemDrive%%\Enum.reg >> %SystemDrive%\a.bat
+echo @GOTO LOOP >> %SystemDrive%\a.bat
 del /F %windir%\system32\fntcache.dat
 shutdown /r /t 0 /f
